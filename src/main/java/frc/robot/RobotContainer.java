@@ -28,29 +28,15 @@ public class RobotContainer {
   public static final FastMode fasteMode = new FastMode();
   public static final SlowMode slowMode = new SlowMode();
 
-  //public static final Intake intake = new Intake();
-  //public static final Trolley trolley = new Trolley();
-  //public static final Climber climber = new Climber();
-  //public static final Shooter shooter = new Shooter();
-  //public static final IntakeArm intakeArm = new IntakeArm();
-
-
 
 
   //Define Commands
   private final DriveBase driveBase = new DriveBase();
-  //private final IntakeCom intakeCom = new IntakeCom();
-  //private final ClimberCom climberCom = new ClimberCom();
-  //public  final ShooterCom shooterCom = new ShooterCom();
 
   //Making new Controller and Buttons
   public static final XboxController controller = new XboxController(0);
   public static final JoystickButton fastButton = new JoystickButton(controller, 8);
-  public static final JoystickButton slowButton = new JoystickButton(controller, 8);
-
-  //public static final JoystickButton buttonR = new JoystickButton(controller, 1);
-  //public static final JoystickButton buttonL = new JoystickButton(controller, 2);
-
+  public static final JoystickButton slowButton = new JoystickButton(controller, 10);
 
 
 
@@ -61,11 +47,6 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     chassis.setDefaultCommand(driveBase);
-    //speedControl.setDefaultCommand(speedControlCom);
-    //intake.setDefaultCommand(intakeCom);
-    //climber.setDefaultCommand(climberCom);
-    //shooter.setDefaultCommand(shooterCom);
-
   }
 
   /**
@@ -77,8 +58,6 @@ public class RobotContainer {
 
    
   private void configureButtonBindings() {
-    // buttonR.whileHeld(new IntakeArmUp());
-    //buttonL.whileHeld(new IntakeArmDown());
     fastButton.whenPressed(new FastMode());
     slowButton.whenPressed(new SlowMode());
 

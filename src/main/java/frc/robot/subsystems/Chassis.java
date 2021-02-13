@@ -26,8 +26,7 @@ public class Chassis extends SubsystemBase {
   fl.set(Left);
   bl.set(Left);
   fr.set(-right);
-  br.set(-right);
-     
+  br.set(-right);   
   }
 
   public Chassis() {
