@@ -9,7 +9,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.SpeedControl;
+import frc.robot.commands.FastMode;
+import frc.robot.commands.SlowMode;
 import frc.robot.commands.DriveBase;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -24,7 +25,9 @@ import frc.robot.subsystems.Chassis;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public static final Chassis chassis = new Chassis();
-  public static final SpeedControl speedControl = new SpeedControl();
+  public static final FastMode fasteMode = new FastMode();
+  public static final SlowMode slowMode = new SlowMode();
+
   //public static final Intake intake = new Intake();
   //public static final Trolley trolley = new Trolley();
   //public static final Climber climber = new Climber();
@@ -42,7 +45,9 @@ public class RobotContainer {
 
   //Making new Controller and Buttons
   public static final XboxController controller = new XboxController(0);
-  public static final JoystickButton startButton = new JoystickButton(controller, 8);
+  public static final JoystickButton fastButton = new JoystickButton(controller, 8);
+  public static final JoystickButton slowButton = new JoystickButton(controller, 8);
+
   //public static final JoystickButton buttonR = new JoystickButton(controller, 1);
   //public static final JoystickButton buttonL = new JoystickButton(controller, 2);
 
@@ -74,7 +79,9 @@ public class RobotContainer {
   private void configureButtonBindings() {
     // buttonR.whileHeld(new IntakeArmUp());
     //buttonL.whileHeld(new IntakeArmDown());
-    startButton.toggleWhenPressed(new SpeedControl());
+    fastButton.whenPressed(new FastMode());
+    slowButton.whenPressed(new SlowMode());
+
   }
 
 public Command getAutonomousCommand() {
@@ -85,7 +92,8 @@ final public static int leftFront = 1;
 final public static int rightFront = 4;
 final public static int leftBack = 2;
 final public static int rightBack = 3;
-
+//Other Variables
+public static boolean fastMode = false;
 }
   
 

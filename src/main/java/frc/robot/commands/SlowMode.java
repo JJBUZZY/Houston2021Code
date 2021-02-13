@@ -8,31 +8,30 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
 
-public class SpeedControl extends CommandBase {
+public class SlowMode extends CommandBase {
   /**
    * Creates a new SpeedControl.
    */
-  public SpeedControl() {
-  System.out.println("Working0");
+  public SlowMode() {
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-  System.out.println("Working1");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-  System.out.println("Working2");
+  //This is where it runs
+  RobotContainer.fastMode = true;
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-  System.out.println("Working3");
   }
 
   // Returns true when the command should end.
