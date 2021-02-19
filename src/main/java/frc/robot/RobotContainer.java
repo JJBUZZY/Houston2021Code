@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import com.revrobotics.SparkMax;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.FastMode;
@@ -45,6 +47,7 @@ public class RobotContainer {
    */
   public RobotContainer() {
     // Configure the button bindings
+    
     configureButtonBindings();
     chassis.setDefaultCommand(driveBase);
   }
@@ -60,17 +63,17 @@ public class RobotContainer {
   private void configureButtonBindings() {
     fastButton.whenPressed(new FastMode());
     slowButton.whenPressed(new SlowMode());
-
+    
   }
 
 public Command getAutonomousCommand() {
 	return null;
 }
 //Declaring Port Variables
-final public static int leftFront = 1;
-final public static int rightFront = 4;
-final public static int leftBack = 2;
-final public static int rightBack = 3;
+final public static int leftFront = 4;
+final public static int rightFront = 1;
+final public static int leftBack = 3;
+final public static int rightBack = 2;
 //Other Variables
 public static boolean fastMode = false;
 }
