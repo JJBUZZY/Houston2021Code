@@ -7,16 +7,17 @@
 
 package frc.robot;
 
-import com.revrobotics.SparkMax;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.FastMode;
 import frc.robot.commands.SlowMode;
+import frc.robot.commands.ShooterUpCom;
 import frc.robot.commands.DriveBase;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.Chassis;
+import frc.robot.subsystems.ShooterUpS;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -29,17 +30,17 @@ public class RobotContainer {
   public static final Chassis chassis = new Chassis();
   public static final FastMode fasteMode = new FastMode();
   public static final SlowMode slowMode = new SlowMode();
-
+  public static final ShooterUpS shooterUpS = new ShooterUpS();
 
 
   //Define Commands
   private final DriveBase driveBase = new DriveBase();
-
+  public static final ShooterUpCom shooterUpCom = new ShooterUpCom();
   //Making new Controller and Buttons
   public static final XboxController controller = new XboxController(0);
   public static final JoystickButton fastButton = new JoystickButton(controller, 8);
   public static final JoystickButton slowButton = new JoystickButton(controller, 10);
-
+  public static final JoystickButton triggerR = new JoystickButton(controller, 3);
 
 
   /**
@@ -50,6 +51,7 @@ public class RobotContainer {
     
     configureButtonBindings();
     chassis.setDefaultCommand(driveBase);
+    shooterUpS.setDefaultCommand(shooterUpCom);
   }
 
   /**
@@ -74,6 +76,7 @@ final public static int leftFront = 4;
 final public static int rightFront = 1;
 final public static int leftBack = 3;
 final public static int rightBack = 2;
+final public static int shooter = 5;
 //Other Variables
 public static boolean fastMode = false;
 }
