@@ -27,7 +27,7 @@ public class DriveBase extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    RobotContainer.chassis.drive(RobotContainer.controller.getRawAxis(1), RobotContainer.controller.getRawAxis(5));
+    RobotContainer.chassis.drive(RobotContainer.controller.getRawAxis(5), RobotContainer.controller.getRawAxis(1));
   }
 
   // Called once the command ends or is interrupted.

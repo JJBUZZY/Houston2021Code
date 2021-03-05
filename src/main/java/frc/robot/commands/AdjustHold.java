@@ -7,11 +7,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 
-public class ShooterUpCom extends CommandBase {
-  /** Creates a new shooterUpC. */
-  public ShooterUpCom() {
+public class AdjustHold extends CommandBase {
+  /** Creates a new AdjustHold. */
+  public AdjustHold() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(RobotContainer.shooterUpS);
   }
 
   // Called when the command is initially scheduled.
@@ -21,12 +20,13 @@ public class ShooterUpCom extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = RobotContainer.controller.getRawAxis(2);
-    if(speed == 0) {
-      speed = -RobotContainer.controller.getRawAxis(3);
-    }
-    RobotContainer.shooterUpS.shoot(speed);
+    RobotContainer.adjustS.adjust(0);
+
   }
+
+  // Called once the command ends or is interrupted.
+  @Override
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

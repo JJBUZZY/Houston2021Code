@@ -9,19 +9,15 @@ import frc.robot.RobotContainer;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-public class ShooterUpS extends SubsystemBase {
+public class AdjustS extends SubsystemBase {
   /** Creates a new ShooterUpS. */
-  CANSparkMax shoot = new CANSparkMax(RobotContainer.shooter, MotorType.kBrushless);
+  CANSparkMax adjust = new CANSparkMax(RobotContainer.adjuster, MotorType.kBrushless);
 
-  public void shoot (double speed) {
-    if (speed > .30){
-      speed = .30;
-    }
-
-    shoot.set(speed);
+  public void adjust (double speed) {
+    adjust.set(speed);
   }
 
-  public ShooterUpS() {}
+  public AdjustS() {}
 
   @Override
   public void periodic() {
