@@ -5,12 +5,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
 
-public class Solenoid extends CommandBase {
-  /** Creates a new Solenoid. */
-  public Solenoid() {
+public class LatchCloseCom extends CommandBase {
+  /** Creates a new LatchCloseCom. */
+  public LatchCloseCom() {
     // Use addRequirements() here to declare subsystem dependencies.
-    
+    addRequirements(RobotContainer.LatchS);
   }
 
   // Called when the command is initially scheduled.
@@ -19,11 +20,17 @@ public class Solenoid extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    RobotContainer.LatchS.latch(-1);
+    System.out.println("Good");
+  }
   
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    RobotContainer.LatchS.latch(0);
+  }
+  
 
   // Returns true when the command should end.
   @Override

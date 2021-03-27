@@ -10,17 +10,17 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
 
-public class ShootingS extends SubsystemBase {
-  /** Creates a new ShotingS. */
-  public ShootingS() {
+public class LatchS extends SubsystemBase {
+  /** Creates a new Latch. */
+  public LatchS() {
   }
+  CANSparkMax latch = new CANSparkMax(RobotContainer.latchB, MotorType.kBrushed);
 
-  CANSparkMax shoot = new CANSparkMax(RobotContainer.shooter, MotorType.kBrushless);
 
-  public void shoot(double speed) {
-    shoot.setClosedLoopRampRate(1);
-    shoot.set(speed);
-
+  public void latch(double speed) {
+    latch.set(speed);
+    System.out.println(speed);
+    System.out.println(latch);
   }
 
   @Override

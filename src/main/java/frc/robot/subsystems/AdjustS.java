@@ -2,8 +2,10 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
+
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotContainer;
 import com.revrobotics.CANSparkMax;
@@ -13,8 +15,9 @@ public class AdjustS extends SubsystemBase {
   /** Creates a new ShooterUpS. */
   CANSparkMax adjust = new CANSparkMax(RobotContainer.adjuster, MotorType.kBrushless);
 
-  public void adjust (double speed) {
+  public void adjust(double speed) {
     adjust.set(speed);
+    SmartDashboard.putNumber("Adjust Angle speed", adjust.get());
   }
 
   public AdjustS() {}
